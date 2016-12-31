@@ -22,7 +22,7 @@ h = calcularH(voltaje,tf,pasos)
 n = calcularN(voltaje,tf,pasos)
 %----Esta bien 
 pause
-fIfinal=@(t,Vm) (gNa*calcularM(Vm,t,pasos)*calcularH(Vm,t,pasos)*(Vm - ENa))-(gK*calcularN(Vm,t,pasos)*(Vm - Ek))-(gL *(Vm - EL))+Iinj;
+fIfinal=@(t,Vm)(-gNa*calcularM(Vm,t,pasos)*calcularH(Vm,t,pasos)*(Vm - ENa)-gK*calcularN(Vm,t,pasos)*(Vm - Ek)-gL *(Vm - EL)+Iinj);
 
 t0=0.000000000001;
 [t,Vm]=euler(fIfinal,t0,tf,voltaje,pasos);
