@@ -27,7 +27,7 @@ for i=1:numel(t)-1
 
 end
 
-plot(x,y,1,2,'r.','MarkerSize',20);
+plot(x,y,1,2);
     ylabel('y')
     xlabel('x')
     legend('orbita')

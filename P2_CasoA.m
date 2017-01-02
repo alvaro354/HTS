@@ -5,6 +5,7 @@
 tf=100;
 H=0.01; % f=@(t,x) cos(t);
 pasos = tf / H;
+t = 0:H:100;
 %voltaje=input('Voltaje de inyeccion, V: '); % f=@(t,x) cos(t);
 Iinyeccion= [5,10,15,50];
 
@@ -17,7 +18,7 @@ Iinyeccion= [5,10,15,50];
  gNa= 120;
 
 %Caso inicial
-V0 = -10;
+V0 = 10;
 
 k1_n = 0.01 * ( (10-V0) / (exp((10-V0)/10)-1) );
 k2_n = 0.125*exp(-V0/80); 

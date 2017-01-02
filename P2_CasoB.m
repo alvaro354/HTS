@@ -4,6 +4,7 @@
 
 tf=100;
 H=0.01; % f=@(t,x) cos(t);
+t = 0:H:100;
 pasos = tf / H;
 %voltaje=input('Voltaje de inyeccion, V: '); % f=@(t,x) cos(t);
 Iinyeccion= [5,10,15,50];
