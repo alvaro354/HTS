@@ -55,12 +55,23 @@ for j=1:4
 
     end
     
-    VF{j} = V;
+    if j == 1
+        V1=V;
+    end
+    if j == 2
+        V2=V;
+    end
+    if j == 3
+        V3=V;
+    end
+    if j == 4
+        V4=V;
+    end
     
 end
 
 
-plot(t,VF{1},t,VF{2},t,VF{3},t,VF{4})
+plot(t,V1,t,V2,t,V3,t,V4)
     ylabel('mv')
     xlabel('ms')
     legend('Voltaje(I=5)','Voltaje(I=10)','Voltaje(I=15)','Voltaje(I=50)')
