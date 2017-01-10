@@ -10,8 +10,10 @@ pasos = tf / H;
 Iinyeccion= [5,10,15,50];
 
  Ek = -12;
- ENa = 115;
+ E_Na = 115;
  EL = 10.6;
+ C = 1;
+
 
  gL = 0.3;
  gK=36;

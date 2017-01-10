@@ -10,19 +10,10 @@ pasos=100;
 
 for j=1:7
     
+    %Calculamos la respuesta para potenciales de -30 a 30 en intervalos de
+    %10 en 10
     V(j)=-30+10.1*(j-1);
-    k1 = 0.01 * ( (10-V(j)) / (exp((10-V(j))/10)-1) );
-    km1 = 0.125*exp(-V(j)/80); 
-    
-    %Calcular n por euler para cada iteracion
-    
-    f=@(t,n) k1 -(k1 + km1)*n;
-    t0=0;
-    n0=0; 
-    n=eulerPuntual(f,t0,t,n0,pasos);
-    
-    %Calculamos la intesidad con la n calculada y el voltaje de inyección;
-    I(j)=gK_max * n * V(j);
+    I(j)=K_v(t, V(j));
     
 end
 
@@ -31,10 +22,25 @@ end
 plot(V,I)
     ylabel('mA')
     xlabel('mV')
+
+function i =  K_v(t,V)
     
+    gK_max = 36; 
+    t=90;
+    pasos=100;
+
     
+    k1 = 0.01 * ( (10-V) / (exp((10-V)/10)-1) );
+    km1 = 0.125*exp(-V/80);
+    f=@(t,n) k1 -(k1 + km1)*n;
+    t0=0;
+    n0=0; 
+    n=eulerPuntual(f,t0,t,n0,pasos);
     
-    
+    %Calculamos la intesidad con la n calculada y el voltaje de inyección;
+    i=gK_max * n * V;
+
+end
     
 function n = eulerPuntual(f,t0,tf,n0,pasos)
 
