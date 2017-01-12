@@ -38,7 +38,7 @@ for j=1:4
     I = Iinyeccion(j);
     V(1) = V0;
     %Euler
-    for i=1:(pasos-1)
+    for i=1:pasos
         
         V(i+1) = V(i) + H*(I - (n0^4) * gK * (V(i)-Ek) - (m0^3) * gNa * h0 * (V(i)-E_Na) - gL *(V(i)-EL))/C;
         
